@@ -1,0 +1,7 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: harbor-repo.vmware.com/esback/tdp-configurator@sha256:0b03767e0526803c055d080a7d378df9adaeaa7cff0ff5af23a2debe668f20e3
+  image: tanzu01.azurecr.io/tap-1.6.x/tap-packages@sha256:0b03767e0526803c055d080a7d378df9adaeaa7cff0ff5af23a2debe668f20e3
+kind: ImagesLock
