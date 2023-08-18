@@ -84,3 +84,8 @@ tap_install:
         #   secrets:
         #     - git-https
         #   imagePullSecrets: [] # optional
+    
+    package_overlays:
+    - name: tap-gui
+      secrets:
+      - name: tpb-app-image-overlay-secret
