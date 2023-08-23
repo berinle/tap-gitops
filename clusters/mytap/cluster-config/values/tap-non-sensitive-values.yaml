@@ -12,7 +12,7 @@ tap_install:
 
     shared:
       ingress_domain: "tapv6.tanzucld.xyz"
-      # ingress_issuer: # Optional, can denote a cert-manager.io/v1/ClusterIssuer of your choice. Defaults to "tap-ingress-selfsigned".
+      ingress_issuer: "letsencrypt-prod" # Optional, can denote a cert-manager.io/v1/ClusterIssuer of your choice. Defaults to "tap-ingress-selfsigned".
     
       image_registry:
         project_path: "tanzu01.azurecr.io/1.6.x/supply-chain"
@@ -85,6 +85,7 @@ tap_install:
         #     - git-https
         #   imagePullSecrets: [] # optional
     
+    ## tpb custom plugins
     package_overlays:
     - name: tap-gui
       secrets:
