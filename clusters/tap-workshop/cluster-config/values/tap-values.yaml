@@ -1,0 +1,44 @@
+---
+tap_install:
+  values:
+    profile: full
+
+    shared:
+      ingress_domain: tap.tanzucld.xyz
+      ingress_issuer: ""      
+      image_registry:
+        project_path: "tanzu01.azurecr.io/1.6.x/tap-workshop/supply-chain" # Image registry project path (e.g. myregistry.azurecr.io/tap/tap-images)
+        username: tanzu01 # Registry username
+        secret:
+          name: "registry-credentials"
+          namespace: "tap-install"        
+      # kubernetes_version: # Kubernetes version (e.g. 1.25.9)
+
+    ceip_policy_disclosed: true
+
+    buildservice:
+      kp_default_repository: "tanzu01.azurecr.io/tap-1.6.x/tap-workshop/build-service"
+
+    # LSP
+    local_source_proxy:
+      # Takes the value from the project_path under the image_registry section of shared by default, but can be overridden by setting a different value.
+      repository: "tanzu01.azurecr.io/tap-1.6.x/tap-workshop/local-source-proxy"
+      push_secret:
+        name: "lsp-push-credentials"
+        namespace: "tap-install"
+        # When set to true, the secret mentioned in this section is automatically exported to Local Source Proxy's namespace.
+        create_export: true
+
+    # These packages will be deprecated in future versions of TAP, so we will exclude them to free up space on the cluster
+    excluded_packages:
+      - learningcenter.tanzu.vmware.com
+      - workshops.learningcenter.tanzu.vmware.com
+      - eventing.tanzu.vmware.com
+
+    tap_gui:
+      service_type: ClusterIP
+      ingressEnabled: "true"
+      app_config:
+        auth:
+          allowGuestAccess: true
+          environment: development
