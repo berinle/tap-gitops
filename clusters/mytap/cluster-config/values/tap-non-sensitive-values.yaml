@@ -35,9 +35,8 @@ tap_install:
     
     local_source_proxy:
       # Takes the value from the project_path under the image_registry section of shared by default, but can be overridden by setting a different value.
-      repository: "tanzu01.azurecr.io/tap-1.6.x/local-source"
+      repository: "tanzu01.azurecr.io/tap-1.6.x/local-source-proxy"
       push_secret:
-        # When set to true, the secret mentioned in this section is automatically exported to Local Source Proxy's namespace.
         name: "lsp-push-credentials"
         namespace: "tap-install"
         # When set to true, the secret mentioned in this section is automatically exported to Local Source Proxy's namespace.
