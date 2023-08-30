@@ -1,6 +1,3 @@
 tap_install:
   package_repository:
     oci_repository: tanzu01.azurecr.io/tap-1.6.x/tap-packages
-  version:
-    package_repo_bundle_tag: "1.6.1"
-    package_version: "1.6.1"
